@@ -598,10 +598,18 @@ enum STBVorbisError
    #include <assert.h>
    #include <math.h>
 #else // STB_VORBIS_NO_CRT
+   #ifndef NULL
    #define NULL 0
+   #endif
+   #ifndef malloc
    #define malloc(s)   0
+   #endif
+   #ifndef free
    #define free(p)     ((void) 0)
+   #endif
+   #ifndef realloc
    #define realloc(p, s)  0
+   #endif
 #endif // STB_VORBIS_NO_CRT
 
 #include <limits.h>
