@@ -1196,10 +1196,12 @@ static void compute_accelerated_huffman(Codebook *c)
    }
 }
 
+#ifndef STBV_CDECL
 #ifdef _MSC_VER
 #define STBV_CDECL __cdecl
 #else
 #define STBV_CDECL
+#endif
 #endif
 
 static int STBV_CDECL uint32_compare(const void *p, const void *q)
