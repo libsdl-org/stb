@@ -1,0 +1,2 @@
+/home/a/libxmp-testing/OGG_code_length_32/640e58e038dfe66099e135c9e09c43037877ebfe.ogg: stb_vorbis.c:1699:70: runtime error: signed integer overflow: -2147483648 - 1 cannot be represented in type 'int'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior stb_vorbis.c:1699:70 in

@@ -1,0 +1,16 @@
+[a@localhost stb]$ ./vorbisA OGG_lookup_values_oom.ogg 
+OGG_lookup_values_oom.ogg: =================================================================
+==107987==ERROR: AddressSanitizer: requested allocation size 0xffffffffdb900d58 (0xffffffffdb901d58 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
+    #0 0x4c33ef in malloc (/home/a/stb/vorbisA+0x4c33ef)
+    #1 0x512c91 in setup_temp_malloc(stb_vorbis*, int) /home/a/stb/./stb_vorbis.c:977:11
+    #2 0x512c91 in start_decoder(stb_vorbis*) /home/a/stb/./stb_vorbis.c:3863:29
+    #3 0x5288ce in stb_vorbis_open_file_section /home/a/stb/./stb_vorbis.c:5060:8
+    #4 0x5305b0 in stb_vorbis_open_file /home/a/stb/./stb_vorbis.c:5080:11
+    #5 0x5305b0 in stb_vorbis_open_filename /home/a/stb/./stb_vorbis.c:5093:14
+    #6 0x5305b0 in stb_vorbis_decode_filename /home/a/stb/./stb_vorbis.c:5350:20
+    #7 0x533d34 in main /home/a/stb/vorbisA.cpp:24:17
+    #8 0x7fd489841b74 in __libc_start_main (/lib64/libc.so.6+0x27b74)
+
+==107987==HINT: if you don't care about these errors you may set allocator_may_return_null=1
+SUMMARY: AddressSanitizer: allocation-size-too-big (/home/a/stb/vorbisA+0x4c33ef) in malloc
+==107987==ABORTING

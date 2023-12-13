@@ -1,0 +1,3 @@
+https://github.com/nothings/stb/pull/1312
+stb_vorbis: extend Mapping submap_floor and submap_residue.
+(UBSAN)

@@ -1,0 +1,2 @@
+https://github.com/nothings/stb/pull/1174
+stb_vorbis: fix slow loads and leaks in start_decoder.

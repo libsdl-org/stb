@@ -1,0 +1,2 @@
+/home/a/libxmp-testing/OGG_40bit_values/173c22065af31cbe73c59baea0aa22a0c9be198b.ogg: stb_vorbis.c:3860:43: runtime error: signed integer overflow: 2994923 * 44210 cannot be represented in type 'int'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior stb_vorbis.c:3860:43 in

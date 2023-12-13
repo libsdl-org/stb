@@ -1,0 +1,8 @@
+stb_vorbis.c:4128:10: runtime error: index 15 out of bounds for type 'uint8 [15]'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior stb_vorbis.c:4128:10 in 
+stb_vorbis.c:4129:10: runtime error: index 15 out of bounds for type 'uint8 [15]'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior stb_vorbis.c:4129:10 in 
+stb_vorbis.c:4130:14: runtime error: index 15 out of bounds for type 'uint8 [15]'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior stb_vorbis.c:4130:14 in 
+stb_vorbis.c:4131:14: runtime error: index 15 out of bounds for type 'uint8 [15]'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior stb_vorbis.c:4131:14 in

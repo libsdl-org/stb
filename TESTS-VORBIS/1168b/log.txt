@@ -1,0 +1,11 @@
+65537dda5e67e6d6aa4b032e70b45e90e7f1322d.ogg
+
+src/depackers/vorbis.c:5171:15: runtime error: signed integer overflow: -1026200468 - 1136656384 cannot be represented in type 'int'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior src/depackers/vorbis.c:5171:15 in 
+
+7530d375fa4fef8e627674df712762dd3a2ab5d0.ogg
+
+src/depackers/vorbis.c:5171:15: runtime error: signed integer overflow: -1037235904 - 1136656384 cannot be represented in type 'int'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior src/depackers/vorbis.c:5171:15 in 
+
+etc...

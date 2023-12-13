@@ -1,0 +1,2 @@
+https://github.com/nothings/stb/issues/1168
+stb_vorbis: Undefined behavior found by libFuzzer/UBSan.

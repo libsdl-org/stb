@@ -1,0 +1,15 @@
+5bb536ce97eb9f582be48fe6825d04f7f245f02c.ogg
+
+src/depackers/vorbis.c:1244:14: runtime error: 2.14525e+155 is outside the range of representable values of type 'int'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior src/depackers/vorbis.c:1244:14 in 
+src/depackers/vorbis.c:1248:14: runtime error: 2.14525e+155 is outside the range of representable values of type 'int'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior src/depackers/vorbis.c:1248:14 in 
+
+825e51922407acfb71fbc40e804234be91dc5d91.ogg
+
+src/depackers/vorbis.c:1244:14: runtime error: inf is outside the range of representable values of type 'int'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior src/depackers/vorbis.c:1244:14 in 
+src/depackers/vorbis.c:1248:14: runtime error: inf is outside the range of representable values of type 'int'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior src/depackers/vorbis.c:1248:14 in 
+
+etc...

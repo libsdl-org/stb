@@ -1,0 +1,159 @@
+=================================================================
+==261111==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61a000002390 at pc 0x0000004319a2 bp 0x7ffcea98c490 sp 0x7ffcea98c488
+READ of size 4 at 0x61a000002390 thread T0
+    #0 0x4319a1 in codebook_decode_deinterleave_repeat /home/minax/stb/stb_vorbis.c:1920
+    #1 0x4360ed in decode_residue /home/minax/stb/stb_vorbis.c:2171
+    #2 0x43d8c9 in vorbis_decode_packet_rest /home/minax/stb/stb_vorbis.c:3322
+    #3 0x449dc2 in vorbis_decode_packet /home/minax/stb/stb_vorbis.c:3453
+    #4 0x449dc2 in vorbis_pump_first_frame /home/minax/stb/stb_vorbis.c:3512
+    #5 0x45f621 in stb_vorbis_open_memory /home/minax/stb/stb_vorbis.c:5116
+    #6 0x463409 in stb_vorbis_decode_memory /home/minax/stb/stb_vorbis.c:5390
+    #7 0x406230 in main /home/minax/stb/vorbis.cpp:42
+    #8 0x7f6689c49b49 in __libc_start_call_main (/lib64/libc.so.6+0x27b49) (BuildId: 245240a31888ad5c11bbc55b18e02d87388f59a9)
+    #9 0x7f6689c49c0a in __libc_start_main_alias_2 (/lib64/libc.so.6+0x27c0a) (BuildId: 245240a31888ad5c11bbc55b18e02d87388f59a9)
+    #10 0x406784 in _start (/home/minax/stb/asan+0x406784) (BuildId: afeeb27779aaabdeae2fbe906fc4d083bf884d1a)
+
+0x61a000002390 is located 0 bytes after 1296-byte region [0x61a000001e80,0x61a000002390)
+allocated by thread T0 here:
+    #0 0x7f668a2d92ff in malloc (/lib64/libasan.so.8+0xd92ff) (BuildId: bac59ca9f1e357781008d7f6982314d30ca62672)
+    #1 0x450df3 in start_decoder /home/minax/stb/stb_vorbis.c:3880
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/minax/stb/stb_vorbis.c:1920 in codebook_decode_deinterleave_repeat
+Shadow bytes around the buggy address:
+  0x61a000002100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002180: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002200: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x61a000002380: 00 00[fa]fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x61a000002400: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x61a000002480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002580: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==261111==ABORTING
+=================================================================
+==261112==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61a000002390 at pc 0x0000004319a2 bp 0x7ffef1fedb80 sp 0x7ffef1fedb78
+READ of size 4 at 0x61a000002390 thread T0
+    #0 0x4319a1 in codebook_decode_deinterleave_repeat /home/minax/stb/stb_vorbis.c:1920
+    #1 0x4360ed in decode_residue /home/minax/stb/stb_vorbis.c:2171
+    #2 0x43d8c9 in vorbis_decode_packet_rest /home/minax/stb/stb_vorbis.c:3322
+    #3 0x449dc2 in vorbis_decode_packet /home/minax/stb/stb_vorbis.c:3453
+    #4 0x449dc2 in vorbis_pump_first_frame /home/minax/stb/stb_vorbis.c:3512
+    #5 0x45f621 in stb_vorbis_open_memory /home/minax/stb/stb_vorbis.c:5116
+    #6 0x463409 in stb_vorbis_decode_memory /home/minax/stb/stb_vorbis.c:5390
+    #7 0x406230 in main /home/minax/stb/vorbis.cpp:42
+    #8 0x7fb289c49b49 in __libc_start_call_main (/lib64/libc.so.6+0x27b49) (BuildId: 245240a31888ad5c11bbc55b18e02d87388f59a9)
+    #9 0x7fb289c49c0a in __libc_start_main_alias_2 (/lib64/libc.so.6+0x27c0a) (BuildId: 245240a31888ad5c11bbc55b18e02d87388f59a9)
+    #10 0x406784 in _start (/home/minax/stb/asan+0x406784) (BuildId: afeeb27779aaabdeae2fbe906fc4d083bf884d1a)
+
+0x61a000002390 is located 0 bytes after 1296-byte region [0x61a000001e80,0x61a000002390)
+allocated by thread T0 here:
+    #0 0x7fb28a2d92ff in malloc (/lib64/libasan.so.8+0xd92ff) (BuildId: bac59ca9f1e357781008d7f6982314d30ca62672)
+    #1 0x450df3 in start_decoder /home/minax/stb/stb_vorbis.c:3880
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/minax/stb/stb_vorbis.c:1920 in codebook_decode_deinterleave_repeat
+Shadow bytes around the buggy address:
+  0x61a000002100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002180: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002200: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x61a000002380: 00 00[fa]fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x61a000002400: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x61a000002480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002580: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==261112==ABORTING
+=================================================================
+==261113==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61a000002390 at pc 0x0000004319a2 bp 0x7fffcb5b1030 sp 0x7fffcb5b1028
+READ of size 4 at 0x61a000002390 thread T0
+    #0 0x4319a1 in codebook_decode_deinterleave_repeat /home/minax/stb/stb_vorbis.c:1920
+    #1 0x4360ed in decode_residue /home/minax/stb/stb_vorbis.c:2171
+    #2 0x43d8c9 in vorbis_decode_packet_rest /home/minax/stb/stb_vorbis.c:3322
+    #3 0x44a39f in vorbis_decode_packet /home/minax/stb/stb_vorbis.c:3453
+    #4 0x44a39f in stb_vorbis_get_frame_float /home/minax/stb/stb_vorbis.c:5033
+    #5 0x46364d in stb_vorbis_get_frame_short_interleaved /home/minax/stb/stb_vorbis.c:5301
+    #6 0x46364d in stb_vorbis_decode_memory /home/minax/stb/stb_vorbis.c:5404
+    #7 0x406230 in main /home/minax/stb/vorbis.cpp:42
+    #8 0x7f5411649b49 in __libc_start_call_main (/lib64/libc.so.6+0x27b49) (BuildId: 245240a31888ad5c11bbc55b18e02d87388f59a9)
+    #9 0x7f5411649c0a in __libc_start_main_alias_2 (/lib64/libc.so.6+0x27c0a) (BuildId: 245240a31888ad5c11bbc55b18e02d87388f59a9)
+    #10 0x406784 in _start (/home/minax/stb/asan+0x406784) (BuildId: afeeb27779aaabdeae2fbe906fc4d083bf884d1a)
+
+0x61a000002390 is located 0 bytes after 1296-byte region [0x61a000001e80,0x61a000002390)
+allocated by thread T0 here:
+    #0 0x7f5411cd92ff in malloc (/lib64/libasan.so.8+0xd92ff) (BuildId: bac59ca9f1e357781008d7f6982314d30ca62672)
+    #1 0x450df3 in start_decoder /home/minax/stb/stb_vorbis.c:3880
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /home/minax/stb/stb_vorbis.c:1920 in codebook_decode_deinterleave_repeat
+Shadow bytes around the buggy address:
+  0x61a000002100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002180: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002200: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x61a000002380: 00 00[fa]fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x61a000002400: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x61a000002480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002580: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x61a000002600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==261113==ABORTING
