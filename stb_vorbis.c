@@ -5416,6 +5416,21 @@ int stb_vorbis_get_frame_short_interleaved(stb_vorbis *f, int num_c, short *buff
    return len;
 }
 
+static int fixup_current_playback_loc(stb_vorbis *f, int n)
+{
+   unsigned int lgs;
+
+   f->current_playback_loc += n;
+   lgs = stb_vorbis_stream_length_in_samples(f);
+   if (f->current_playback_loc > lgs && lgs > 0 && lgs != SAMPLE_unknown) {
+       int r = n - (f->current_playback_loc - (int)lgs);
+       f->current_playback_loc = lgs;
+       return r;
+   }
+
+   return n;
+}
+
 int stb_vorbis_get_samples_short_interleaved(stb_vorbis *f, int channels, short *buffer, int num_shorts)
 {
    float **outputs;
@@ -5432,8 +5447,7 @@ int stb_vorbis_get_samples_short_interleaved(stb_vorbis *f, int channels, short 
       if (n == len) break;
       if (!stb_vorbis_get_frame_float(f, NULL, &outputs)) break;
    }
-   f->current_playback_loc += n;
-   return n;
+   return fixup_current_playback_loc(f, n);
 }
 
 int stb_vorbis_get_samples_short(stb_vorbis *f, int channels, short **buffer, int len)
@@ -5450,8 +5464,7 @@ int stb_vorbis_get_samples_short(stb_vorbis *f, int channels, short **buffer, in
       if (n == len) break;
       if (!stb_vorbis_get_frame_float(f, NULL, &outputs)) break;
    }
-   f->current_playback_loc += n;
-   return n;
+   return fixup_current_playback_loc(f, n);
 }
 
 #ifndef STB_VORBIS_NO_STDIO
@@ -5559,8 +5572,7 @@ int stb_vorbis_get_samples_float_interleaved(stb_vorbis *f, int channels, float 
       if (!stb_vorbis_get_frame_float(f, NULL, &outputs))
          break;
    }
-   f->current_playback_loc += n;
-   return n;
+   return fixup_current_playback_loc(f, n);
 }
 
 int stb_vorbis_get_samples_float(stb_vorbis *f, int channels, float **buffer, int num_samples)
@@ -5586,8 +5598,7 @@ int stb_vorbis_get_samples_float(stb_vorbis *f, int channels, float **buffer, in
       if (!stb_vorbis_get_frame_float(f, NULL, &outputs))
          break;
    }
-   f->current_playback_loc += n;
-   return n;
+   return fixup_current_playback_loc(f, n);
 }
 #endif // STB_VORBIS_NO_PULLDATA_API
 
