@@ -1393,6 +1393,7 @@ static uint8 get8(vorb *z)
    return c;
    }
    #endif
+   return 0;  /* silence warnings */
 }
 
 static uint32 get32(vorb *f)
@@ -1422,6 +1423,7 @@ static int getn(vorb *z, uint8 *data, int n)
       return 0;
    }
    #endif
+   return 0;  /* silence warnings */
 }
 
 static void skip(vorb *z, int n)
@@ -1468,6 +1470,7 @@ static int set_file_offset(stb_vorbis *f, unsigned int loc)
    fseek(f->f, f->f_start, SEEK_END);
    return 0;
    #endif
+   return 0;  /* silence warnings */
 }
 
 
@@ -4652,6 +4655,7 @@ unsigned int stb_vorbis_get_file_offset(stb_vorbis *f)
    #ifndef STB_VORBIS_NO_STDIO
    return (unsigned int) (ftell(f->f) - f->f_start);
    #endif
+   return 0;  /* silence warnings */
 }
 
 #ifndef STB_VORBIS_NO_PULLDATA_API
