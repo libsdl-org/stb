@@ -423,7 +423,8 @@ enum STBVorbisError
    VORBIS_bad_packet_type,
    VORBIS_cant_find_last_page,
    VORBIS_seek_failed,
-   VORBIS_ogg_skeleton_not_supported
+   VORBIS_ogg_skeleton_not_supported,
+   VORBIS_invalid_granule_pos,
 };
 
 
